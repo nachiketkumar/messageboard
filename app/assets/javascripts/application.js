@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+Batman.config.pathToHTML = '/assets/html'
+Batman.View::cache = false
+
+$(document).ready(function(){  
+  $("#submitmsg").click(function(){     
+    var clientmsg = $("#usermsg").val();  
+    //
+    $.post("post.php", {text: clientmsg}); 
+    //               
+    $("#usermsg").attr("value", "");  
+    return false;  
+  });  
+});  
