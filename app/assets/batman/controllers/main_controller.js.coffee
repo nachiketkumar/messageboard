@@ -2,8 +2,7 @@ class Messageboard.MainController extends Messageboard.ApplicationController
   routingKey: 'main'
 
   index: (params) ->
-    @messages = Messageboard.Message.get('all')
+    @set 'firstName', 'James'
+    @set 'lastName', 'Bond'
 
-  submitMessage: (params) ->
-    @newMessage.save()
-    @
+  @accessor 'fullName', -> "#{@get('firstName')} #{@get('lastName')}"
