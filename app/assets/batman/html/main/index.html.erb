@@ -1,0 +1,19 @@
+<div id="wrapper">  
+    <div id="menu">  
+        <p class="welcome">Welcome, <b></b></p> 
+    </div>  
+      
+    <div id="chatbox">
+        <div data-foreach-message="messages">
+          <strong data-bind="message.owner"></strong>:
+          <span data-bind="message.content"></span>
+        </div>
+    </div>  
+
+    <form data-formfor-message="newMessage" data-event-submit="sendMessage">
+      Message: <input data-bind="newMessage.content" />
+      <input type="submit" value="Send Message" />
+    </form>
+     
+</div>  
+

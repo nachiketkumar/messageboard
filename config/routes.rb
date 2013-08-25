@@ -1,9 +1,7 @@
 Messageboard::Application.routes.draw do
 
-  get "rails/d"
-  get "rails/model"
-  get "rails/messages"
   get "(*redirect_path)", to: "batman#index", constraints: lambda { |request| request.format == "text/html" }
+  resources :messages
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
