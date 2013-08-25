@@ -1,8 +1,17 @@
 class Messageboard.MainController extends Messageboard.ApplicationController
   routingKey: 'main'
 
-  index: (params) ->
-    @set 'firstName', 'James'
-    @set 'lastName', 'Bond'
+  @beforeAction ->
+    if !Messageboard.get('currentUser')
+      Messageboard.set('currentUser', prompt("What's your name?"))
 
-  @accessor 'fullName', -> "#{@get('firstName')} #{@get('lastName')}"
+  index: (params) ->
+    @messages = Messageboard.Message.get('all')
+    @populateNewMessage()
+
+  sendMessage: (params) ->
+    @newMessage.save()
+    @populateNewMessage()
+
+  populateNewMessage: ->
+    @newMessage = new Messageboard.Message(owner: Messageboard.get('currentUser'))
