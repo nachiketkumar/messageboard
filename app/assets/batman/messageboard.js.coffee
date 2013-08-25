@@ -15,6 +15,8 @@
 
 Batman.config.pathToHTML = '/assets/html'
 
+Batman.View::cache = false
+
 class Messageboard extends Batman.App
   # @resources 'products'
   # @resources 'discounts', except: ['edit']
