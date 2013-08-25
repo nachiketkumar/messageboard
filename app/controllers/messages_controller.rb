@@ -4,11 +4,11 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.all
+    respond_with @messages
   end
 
   def create
-    @message = Message.new(message_params)
-    @message.save
+    @message = Message.create(message_params)
     respond_with @message
   end
 
