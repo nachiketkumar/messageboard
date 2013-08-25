@@ -1,0 +1,1 @@
+class Messageboard.ApplicationController extends Batman.Controller
